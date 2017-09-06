@@ -1,0 +1,14 @@
+{
+  "api_key": "AN#EXAMPLE!API$KEY",
+  "domains":
+  	[
+		  {
+		  	"id": 00000,
+		  	"name": "example.com"
+		  },
+		  {
+		  	"id": 000000,
+		  	"name": "example.com"
+		  }
+  	]
+}

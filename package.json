@@ -1,0 +1,18 @@
+{
+  "name": "dyndns",
+  "version": "1.0.5",
+  "description": "Dynamic DNS and DigitalOcean",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rune G",
+  "license": "ISC",
+  "bin": {
+    "dyndns": "./index.js"
+  },
+  "dependencies": {
+    "deasync": "^0.1.10",
+    "request": "^2.81.0"
+  }
+}

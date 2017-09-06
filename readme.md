@@ -1,0 +1,36 @@
+# DYNDNS
+DYNDNS is a small Node CLI (command line) app that updates DNS records on you Digital Ocean account.
+
+### Installation
+Clone this repo with `git clone https://gitlab.no/rune/dyndns.git` edit the `config.json` file with your information. To get your API key, log in to your Digital Ocean account and click the API link at the top of the page. Follow the instructions!
+
+If you don't know your subdomains ID, just fill in the parts with `api_key` and `name` and install as described below. The `name` parameter is the top level domain name, eg. `example.com`.
+
+Then run the app `dyndns --config "/path/to/your/config.json" --list`
+
+You will get a JSON looking something like this:
+
+    
+       { id: 000000, <-- The ID
+       type: 'A',
+       name: 'YOU SUB DOMAIN',
+       data: '127.0.0.1', <-- Current IP
+       priority: null,
+       port: null,
+       ttl: 1800,
+       weight: null,
+       flags: null,
+       tag: null },
+
+Place the value of `id` in the correct place(s) in your `config.json` file.
+
+### Use
+As describe above, you use the app by runnig it with parameters. You _HAVE_ to include `--config "/path/to/your/config.json"`. The file can be anywhere on the system, but the user running the app should be able to read the file! You can name the file what you like as well.
+
+To include IPv6 add `-ip6` to the command. eg. `dyndns --config "/path/to/your/config.json" -ip6`
+
+I use it with Cron. My crontab contains the line `0 * * * * dyndns --config "/path/to/your/config.json" -ip6 >/dev/null 2>&1`. This runs the command once an hour with no logging. If you want a log, you can use `0 * * * * dyndns --config "/path/to/your/config.json" -ip6 >> /var/log/dyndns.log`in your crontab. This logs all events and errors to a log file (`dyndns.log`). You can of course name your log file as you wish!  Digital Ocean has a rate limit on 5000 requests per hour.
+
+### Development
+
+
