@@ -133,7 +133,6 @@ if(process.argv.indexOf('--list') !== -1 || process.argv.indexOf('-l') !== -1){
 
 if(process.argv.indexOf('-ip6') !== -1){
     IP6 = getIPv6();
-    console.log('IP6');
     includeIP6 = true
 };
 
