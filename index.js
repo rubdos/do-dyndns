@@ -9,8 +9,12 @@ try{
     var configFileId = process.argv.indexOf('--config');
     var config = JSON.parse(fs.readFileSync(process.argv[configFileId+1], 'utf8'));
 } catch(error){
+     if(configFileId === -1){
+        console.log(new Date()+' Missing --config parameter.'); 
+     } else {
      console.log(new Date()+' Error reading cofig file. File either missing or malformed.'); 
-     process.exit();
+    }
+    process.exit();
 };
 
 if(process.argv.indexOf('--list') !== -1 || process.argv.indexOf('-l') !== -1){
