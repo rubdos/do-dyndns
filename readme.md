@@ -4,7 +4,7 @@ DYNDNS is a small Node CLI (command line) app that updates DNS records on you Di
 ### Installation
 Clone this repo with `git clone https://gitlab.no/rune/dyndns.git`. To get your API key, log in to your Digital Ocean account and click the API link at the top of the page. Follow the instructions!  Edit the `config.json` file with your information.
 
-If you don't know your subdomains ID, just fill in the parts with `api_key` and `name` and install as described below. The `name` parameter is the top level domain name, eg. `example.com`.
+If you don't know your subdomains ID, just fill in the parts with `api_key` and `name` and install with `npm install -g`. The `name` parameter is the top level domain name, eg. `example.com`.
 
 Then run the app `dyndns --config "/path/to/your/config.json" --list`
 
