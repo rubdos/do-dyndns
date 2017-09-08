@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 var request = require('request');
 var fs = require('fs');
+var figlet = require('figlet');
 var args = process.argv;
 var includeIP6 = false;
 var IP6;
 var updated = false;
+if(process.argv.indexOf('-h') != -1 || process.argv.indexOf('--help') != -1 ){
+    showHelp();
+    process.exit();
+};
 try{
     var configFileId = process.argv.indexOf('--config');
     var config = JSON.parse(fs.readFileSync(process.argv[configFileId+1], 'utf8'));
@@ -129,6 +134,21 @@ function getDomainInfo(){
     }
     return domainInfo;
 }
+
+function showHelp(){
+    console.log(figlet.textSync('dynDNS', {
+    horizontalLayout: 'default',
+    verticalLayout: 'default'
+}));
+    console.log('\r\ndynDNS updates your Digital Ocean DNS record with your local (public) IPv4 and IPv6');
+    console.log('Usage :');
+    console.log ('dyndns --config \"/path/to/file/config.json\"');
+    console.log('\r\nOptions : \r\n         -h or --help          Show this help');
+    console.log('         -l or --list          Lists subdomains');
+    console.log('         -ip6                  Include IPv6 when updating');
+    console.log('\r\nExample: dyndns --config \"/home/testuser/config.json\" -ip6');
+};
+
 if(process.argv.indexOf('--list') !== -1 || process.argv.indexOf('-l') !== -1){
    var domainInfo = JSON.parse(getDomainInfo());
    console.dir(domainInfo, {depth: null, colors: true});
