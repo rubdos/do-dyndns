@@ -8,6 +8,8 @@ If you don't know your subdomains ID, just fill in the parts with `api_key` and 
 
 Then run the app `dyndns --config "/path/to/your/config.json" --list`
 
+Depending on your operating system, the config file and the path to it should be either inside quotation marks or not.
+
 You will get a JSON looking something like this:
 
     
