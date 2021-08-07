@@ -169,12 +169,13 @@ var IP4 = getIPv4();
             updateIP(IP4,config.domains[i].name,config.api_key,config.domains[i].id);
 	    updated = true;
 	    console.log(new Date()+' Updated IP to '+IP4);           
+        };
         
         if(includeIP6 && dnsIP[0] === 'AAAA' && IP6.localeCompare(dnsIP[1]) != 0){
             updateIP(IP6,config.domains[i].name,config.api_key,config.domains[i].id);
+	    updated = true;
 	    console.log(new Date()+' Updated IP to '+IP6);
         };
-};
     };
 if(!updated) console.log('['+new Date()+'] IP not updated.');
     process.exit();
